@@ -1,0 +1,273 @@
+//HEADER
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #fff;
+
+
+    &__logo img {
+        width: 100px;
+    }
+
+    &__nav ul {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+    }
+
+    &__nav a {
+        text-decoration: none;
+        color: black;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+//FOOTER 
+.footer {
+    background-color: black;
+    color: white;
+    height: 209px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .footer__logo {
+        margin-bottom: 5px;
+    }
+
+    .footer__logo-img {
+        width: auto;
+        height: 50px;
+        /* Ajuster la taille du logo */
+    }
+
+    .footer__text {
+        font-size: 14px;
+        text-align: center;
+    }
+}
+
+//CARDS
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    width: 340px;
+    height: 340px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    &__image {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+    }
+
+    &__title {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+        margin: 0;
+    }
+}
+
+//BANNIERE
+.banniere {
+    width: 1240px;
+    height: 223px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.banniere__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    /* Optionnel : un léger filtre sombre pour l'image */
+}
+
+.banniere__title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+    font-weight: bold;
+    font-family: Montserrat;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    /* Ombre pour améliorer la lisibilité */
+}
+
+//Carroussel 
+.carroussel {
+    width: 1240px;
+    height: 415px;
+    position: relative;
+    overflow: hidden;
+}
+
+.carroussel__container {
+    width: 100%;
+    height: 100%;
+}
+
+.carroussel__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carroussel__controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.carroussel__arrow {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.carroussel__arrow:hover {
+    transform: scale(1.1);
+}
+
+.carroussel__counter {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+//LOGEMENTS
+.logement-info {
+    max-width: 1240px;
+    margin: auto;
+}
+
+.logement-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logement-details {
+    .logement-title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #FF6060;
+    }
+
+    .logement-location {
+        font-size: 18px;
+        color: black;
+    }
+
+    .logement-tags {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+
+        .tag {
+            background: #FF6060;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+    }
+}
+
+.logement-host {
+    display: flex;
+    align-items: center;
+    text-align: right;
+
+    .host-name {
+        margin-right: 10px;
+    }
+
+    .host-picture {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+    }
+}
+
+.logement-rating {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+
+    .fa-star {
+        font-size: 20px;
+    }
+
+    .filled-star {
+        color: #FF6060;
+    }
+
+    .empty-star {
+        color: #E3E3E3;
+    }
+}
+
+.logement-collapses {
+    margin-top: 20px;
+
+    .collapse {
+        background: #FF6060;
+        color: white;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        overflow: hidden;
+
+        .collapse-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .collapse-content {
+            background: #E3E3E3;
+            color: black;
+            padding: 10px;
+            list-style-type: none;
+        }
+    }
+}
