@@ -1,28 +1,17 @@
-export default Home;
-
-import React from 'react';
-import Cards from './components/Cards.jsx';
-
-function App() {
-    return (
-        <div>
-            <h1>Nos Logements</h1>
-            <Cards />
-        </div>
-    );
-}
-
-export default App;
-
-import React from 'react';
-import Banniere from './components/Banniere'; // Assure-toi du bon chemin
-import homeImage from './assets/Ban.png';
+import 'react'; // React pas utilisé explicitement ici, pas contraignant
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import Banniere from '../components/Banniere';
+import Cards from '../components/Cards';
+import homeImage from '../assets/Ban1.png'; // le chemin est correct
 
 function Home() {
     return (
         <div>
-            <Banniere image={homeImage} />
-            {/* Autres contenus de la page Home */}
+            <Header /> {/* Header présent sur toutes les pages */}
+            <Banniere image={homeImage} /> {/* Bannière avec l'image importée */}
+            <Cards /> {/* Composant Cards pour afficher les logements */}
+            <Footer /> {/* Footer présent sur toutes les pages */}
         </div>
     );
 }
