@@ -1,5 +1,4 @@
-import React from 'react';
-import logements from './data/logements.json';
+import logements from "../../data/logements.json";
 import './main.scss';
 
 function Cards() {

@@ -1,10 +1,10 @@
 import 'react'; // React pas utilisé explicitement ici, pas contraignant
 import { useParams } from 'react-router-dom';
-import Carroussel from '../components/Carroussel';
-import Informations from '../components/Informations';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import logements from '../data/logements.json';
+import Carroussel from "../../components/Carroussel";
+import Informations from "../../components/Informations";
+import Header from "../../components/Header";
+import Footer from '../../components/Footer.jsx';
+import logements from "../../data/logements.json";
 
 function Logement() {
     // Récupérer l'ID du logement depuis l'URL

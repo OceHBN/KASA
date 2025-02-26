@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
-import './main.scss';
-import leftArrow from '../assets/arrow_back.png';
-import rightArrow from '../assets/arrow_foward.png';
+import arrowBack from "../../assets/arrow_back.png";
+import arrowForward from "../../assets/arrow_foward.png";
 
 function Carroussel({ pictures }) {
-    const [currentIndex, setCurrentIndex] = useState(0); //useState est un hook de React qui permet d'ajouter un état local à un composant fonctionnel
-    // useState permet de stocker l'index de l'image actuellement affichée
+    const [currentIndex, setCurrentIndex] = useState(0);
 
-    // Fleche de Gauche
     const goToPrevious = () => {
         setCurrentIndex(currentIndex === 0 ? pictures.length - 1 : currentIndex - 1);
     };
 
-    // Fleche de Droite
     const goToNext = () => {
         setCurrentIndex(currentIndex === pictures.length - 1 ? 0 : currentIndex + 1);
     };
@@ -29,10 +25,10 @@ function Carroussel({ pictures }) {
 
             <div className="carroussel__controls">
                 <button className="carroussel__arrow carroussel__arrow--left" onClick={goToPrevious}>
-                    <img src={leftArrow} alt="Previous" />
+                    <img src={arrowBack} alt="Previous" />
                 </button>
                 <button className="carroussel__arrow carroussel__arrow--right" onClick={goToNext}>
-                    <img src={rightArrow} alt="Next" />
+                    <img src={arrowForward} alt="Next" />
                 </button>
             </div>
 

@@ -1,7 +1,6 @@
-import { useState } from 'react';
-import Banniere from '../../components/Banniere';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import Banniere from '../../components/Banniere.jsx';
+import Header from '../../components/Header.jsx';
+import Footer from '../../components/Footer.jsx';
 import aboutImage from '../../assets/Ban2.png';
 import proposData from '../../data/propos.json';
 
