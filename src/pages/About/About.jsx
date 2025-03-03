@@ -3,6 +3,7 @@ import Header from '../../components/Header.jsx';
 import Footer from '../../components/Footer.jsx';
 import aboutImage from '../../assets/Ban2.png';
 import proposData from '../../data/propos.json';
+import React, { useState } from 'react';
 
 function About() {
     return (

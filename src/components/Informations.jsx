@@ -1,16 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import PropTypes from "prop-types";
 import "../styles/main.scss";
-import { useParams } from "react-router-dom";
-import logements from "../data/logements.json";
 
-const Informations = () => {
-    const { id } = useParams();
-    const logement = logements.find(item => item.id === id);
-
-    if (!logement) {
-        return <p>Logement non trouvé</p>;
-    }
-
+const Informations = ({ title, location, tags, host, rating, description, equipments }) => {
+    // États pour gérer l'ouverture/fermeture des collapses
     const [descriptionOpen, setDescriptionOpen] = useState(false);
     const [equipmentsOpen, setEquipmentsOpen] = useState(false);
 
@@ -18,46 +11,53 @@ const Informations = () => {
         <div className="logement-info">
             <div className="logement-header">
                 <div className="logement-details">
-                    <h1 className="logement-title">{logement.title}</h1>
-                    <p className="logement-location">{logement.location}</p>
+                    <h1 className="logement-title">{title}</h1>
+                    <p className="logement-location">{location}</p>
                     <div className="logement-tags">
-                        {logement.tags.map((tag, index) => (
+                        {tags.map((tag, index) => (
                             <span key={index} className="tag">{tag}</span>
                         ))}
                     </div>
                 </div>
 
-                <div className="logement-host">
-                    <p className="host-name">{logement.host.name}</p>
-                    <img className="host-picture" src={logement.host.picture} alt={logement.host.name} />
+                <div className="logement-host-rating">
+                    <div className="logement-host">
+                        <p className="host-name">{host.name}</p>
+                        <img className="host-picture" src={host.picture} alt={host.name} />
+                    </div>
+                    <div className="logement-rating">
+                        {[...Array(5)].map((_, index) => (
+                            <i key={index} className={index < rating ? "fa-solid fa-star filled-star" : "fa-solid fa-star empty-star"}></i>
+                        ))}
+                    </div>
                 </div>
-            </div>
-
-            <div className="logement-rating">
-                {[...Array(5)].map((_, index) => (
-                    <i key={index} className={index < logement.rating ? "fa-solid fa-star filled-star" : "fa-solid fa-star empty-star"}></i>
-                ))}
             </div>
 
             <div className="logement-collapses">
-                {/* Description */}
-                <div className="collapse">
-                    <div className="collapse-header" onClick={() => setDescriptionOpen(!descriptionOpen)}>
+                {/* Collapse Description */}
+                <div className="collapse-description">
+                    <div
+                        className="collapse-header-description"
+                        onClick={() => setDescriptionOpen(!descriptionOpen)}
+                    >
                         <span>Description</span>
                         <i className={descriptionOpen ? "fa-solid fa-chevron-up" : "fa-solid fa-chevron-down"}></i>
                     </div>
-                    {descriptionOpen && <p className="collapse-content">{logement.description}</p>}
+                    {descriptionOpen && <p className="collapse-content-description">{description}</p>}
                 </div>
 
-                {/* Equipements */}
-                <div className="collapse">
-                    <div className="collapse-header" onClick={() => setEquipmentsOpen(!equipmentsOpen)}>
+                {/* Collapse Équipements */}
+                <div className="collapse-equipments">
+                    <div
+                        className="collapse-header-equipments"
+                        onClick={() => setEquipmentsOpen(!equipmentsOpen)}
+                    >
                         <span>Équipements</span>
                         <i className={equipmentsOpen ? "fa-solid fa-chevron-up" : "fa-solid fa-chevron-down"}></i>
                     </div>
                     {equipmentsOpen && (
-                        <ul className="collapse-content">
-                            {logement.equipments.map((equipment, index) => (
+                        <ul className="collapse-content-equipments">
+                            {equipments.map((equipment, index) => (
                                 <li key={index}>{equipment}</li>
                             ))}
                         </ul>
@@ -66,6 +66,20 @@ const Informations = () => {
             </div>
         </div>
     );
+};
+
+// Validation des props avec PropTypes
+Informations.propTypes = {
+    title: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    host: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        picture: PropTypes.string.isRequired,
+    }).isRequired,
+    rating: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
+    equipments: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default Informations;

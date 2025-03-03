@@ -1,10 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+//Structure
+.structure {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin: 0;
+
+}
+
 //HEADER
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background: #fff;
+    margin: auto;
+    width: 1240px;
+    padding-top: 40px;
 
 
     &__logo img {
@@ -56,14 +71,21 @@
 
 //CARDS
 .cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    width: 1240px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); // 3 colonnes de largeur égale
+    gap: 40px;
     justify-content: center;
+    justify-items: center;
+    background-color: #F6F6F6;
+    border-radius: 10px;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .card {
-    width: 340px;
+    width: 90%;
     height: 340px;
     position: relative;
     border-radius: 10px;
@@ -93,11 +115,15 @@
 
 //BANNIERE
 .banniere {
-    width: 1240px;
+    width: 100%;
+    max-width: 1240px; // Limite la largeur maximale à modifier pour le MQ
     height: 223px;
     background-size: cover;
     background-position: center;
     position: relative;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .banniere__overlay {
@@ -106,8 +132,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    /* Optionnel : un léger filtre sombre pour l'image */
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
 }
 
 .banniere__title {
@@ -120,15 +146,17 @@
     font-family: Montserrat;
     color: white;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    /* Ombre pour améliorer la lisibilité */
 }
 
 //Carroussel 
 .carroussel {
-    width: 1240px;
+    width: 100%;
+    max-width: 1240px; // Limite la largeur maximale à modifier pour le MQ
     height: 415px;
+    border-radius: 10px;
     position: relative;
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .carroussel__container {
@@ -173,17 +201,21 @@
 
 //LOGEMENTS
 .logement-info {
-    max-width: 1240px;
-    margin: auto;
+    width: 1240px; // Largeur fixe
+    margin: 0 auto; // Centre horizontalement
+    padding: 20px 0; // Espacement intérieur (optionnel)
 }
 
 .logement-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-between; // Espace entre les deux côtés
+    align-items: flex-start; // Alignement en haut
+    margin-bottom: 20px; // Espacement en bas (optionnel)
 }
 
 .logement-details {
+    flex: 1; // Prend l'espace disponible à gauche
+
     .logement-title {
         font-size: 24px;
         font-weight: bold;
@@ -210,6 +242,13 @@
     }
 }
 
+.logement-host-rating {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; // Alignement à droite
+    gap: 10px; // Espace entre les éléments
+}
+
 .logement-host {
     display: flex;
     align-items: center;
@@ -229,7 +268,6 @@
 .logement-rating {
     display: flex;
     gap: 5px;
-    margin-top: 10px;
 
     .fa-star {
         font-size: 20px;
@@ -245,43 +283,52 @@
 }
 
 .logement-collapses {
-    margin-top: 20px;
+    display: flex;
+    gap: 76px;
+    margin-top: 24px;
+}
 
-    .collapse {
-        background: #FF6060;
-        color: white;
-        margin-bottom: 10px;
-        border-radius: 5px;
-        overflow: hidden;
+.collapse-description,
+.collapse-equipments {
+    width: 582px;
+    flex-shrink: 0;
+}
 
-        .collapse-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            font-weight: bold;
-            cursor: pointer;
-        }
+.collapse-header-description,
+.collapse-header-equipments {
+    background-color: #ff6060;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .collapse-content {
-            background: #E3E3E3;
-            color: black;
-            padding: 10px;
-            list-style-type: none;
-        }
-    }
+.collapse-content-description,
+.collapse-content-equipments {
+    background-color: #f6f6f6;
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+    margin-top: -10px;
 }
 
 //ERROR 
 .error-container {
+    display: flex;
+    flex-direction: column;
     text-align: center;
     margin: 100px auto;
+    gap: 100px;
 }
 
 .error-404 {
     font-size: 288px;
     color: #ff6060;
     font-weight: bold;
+    margin-top: 100px;
+    margin-bottom: 0px;
 }
 
 .error-message {
@@ -303,17 +350,19 @@
 
 //ABOUT
 .about-container {
-    width: 80%;
+    width: 1240px;
     margin: 50px auto;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    align-items: center;
 }
 
 .collapse {
     background-color: #ff6060;
     border-radius: 5px;
     overflow: hidden;
+    width: 1023px;
 }
 
 .collapse-header {
@@ -336,7 +385,138 @@
 }
 
 .collapse-content {
-    background: white;
+    background: #f6f6f6;
     padding: 15px;
     color: black;
+}
+
+// Media Queries pour tablette (768 x 1024)
+@media (max-width: 1024px) {
+    .header {
+        width: 90%;
+        padding-top: 20px;
+    }
+
+    .cards {
+        width: 90%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .banniere {
+        width: 90%;
+    }
+
+    .logement-info {
+        width: 90%;
+    }
+
+    .logement-collapses {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .collapse-description,
+    .collapse-equipments {
+        width: 100%;
+    }
+
+    .about-container {
+        width: 90%;
+    }
+
+    .collapse {
+        width: 100%;
+    }
+}
+
+// Media Queries pour mobile (430 x 932)
+@media (max-width: 768px) {
+    .header {
+        width: 100%;
+        padding: 10px 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        &__logo img {
+            width: 80px;
+        }
+
+        &__nav ul {
+            gap: 10px;
+        }
+    }
+
+    .cards {
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .card {
+        width: 100%;
+        height: 300px;
+    }
+
+    .banniere {
+        width: 100%;
+        height: 150px;
+
+        &__title {
+            font-size: 24px;
+        }
+    }
+
+    .logement-info {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .logement-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logement-host-rating {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logement-collapses {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .collapse-description,
+    .collapse-equipments {
+        width: 100%;
+    }
+
+    .about-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .collapse {
+        width: 100%;
+    }
+
+    .error-container {
+        gap: 50px;
+    }
+
+    .error-404 {
+        font-size: 144px;
+    }
+
+    .error-message {
+        font-size: 24px;
+    }
+
+    .error-link {
+        font-size: 16px;
+    }
 }

@@ -6,7 +6,7 @@ import Ban1 from "../../assets/Ban1.png";
 
 function Home() {
     return (
-        <div>
+        <div className="structure">
             <Header />
             <Banniere image={Ban1} />
             <Cards />

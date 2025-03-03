@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import arrowBack from "../../assets/arrow_back.png";
-import arrowForward from "../../assets/arrow_foward.png";
+import arrowBack from "../assets/arrow_back.png";
+import arrowForward from "../assets/arrow_foward.png";
 
 function Carroussel({ pictures }) {
     const [currentIndex, setCurrentIndex] = useState(0);
