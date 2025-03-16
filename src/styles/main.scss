@@ -1,6 +1,28 @@
+html {
+    height: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
 }
 
 //Structure
@@ -110,6 +132,7 @@ body {
         color: white;
         text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
         margin: 0;
+        font-weight: normal;
     }
 }
 
@@ -151,7 +174,7 @@ body {
 //Carroussel 
 .carroussel {
     width: 100%;
-    max-width: 1240px; // Limite la largeur maximale à modifier pour le MQ
+    max-width: 1240px;
     height: 415px;
     border-radius: 10px;
     position: relative;
@@ -168,6 +191,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .carroussel__controls {
@@ -199,6 +223,11 @@ body {
     font-weight: bold;
 }
 
+.carroussel--single .carroussel__controls,
+.carroussel--single .carroussel__counter {
+    display: none;
+}
+
 //LOGEMENTS
 .logement-info {
     width: 1240px; // Largeur fixe
@@ -218,7 +247,7 @@ body {
 
     .logement-title {
         font-size: 24px;
-        font-weight: bold;
+        font-weight: normal;
         color: #FF6060;
     }
 
@@ -238,6 +267,7 @@ body {
             padding: 5px 10px;
             border-radius: 5px;
             font-size: 14px;
+            font-weight: bold;
         }
     }
 }
@@ -256,6 +286,8 @@ body {
 
     .host-name {
         margin-right: 10px;
+        color: #FF6060;
+        width: 80px;
     }
 
     .host-picture {
@@ -304,6 +336,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-weight: bold;
 }
 
 .collapse-content-description,
@@ -312,6 +345,8 @@ body {
     padding: 20px;
     border-radius: 0 0 10px 10px;
     margin-top: -10px;
+    max-height: 200px; // Limiter la hauteur maximale
+    overflow-y: auto; // Ajouter un défilement si le contenu dépasse
 }
 
 //ERROR 
@@ -407,18 +442,22 @@ body {
         width: 90%;
     }
 
+    .carroussel {
+        width: 90%;
+    }
+
     .logement-info {
         width: 90%;
     }
 
     .logement-collapses {
-        flex-direction: column;
+        flex-direction: row;
         gap: 20px;
     }
 
     .collapse-description,
     .collapse-equipments {
-        width: 100%;
+        width: 50%;
     }
 
     .about-container {
@@ -432,12 +471,15 @@ body {
 
 // Media Queries pour mobile (430 x 932)
 @media (max-width: 768px) {
+
+    .structure {
+        gap: 25px;
+    }
+
     .header {
-        width: 100%;
         padding: 10px 20px;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        gap: 10px;
 
         &__logo img {
             width: 80px;
@@ -449,7 +491,6 @@ body {
     }
 
     .cards {
-        width: 100%;
         grid-template-columns: 1fr;
         gap: 20px;
         padding: 10px;
@@ -461,7 +502,6 @@ body {
     }
 
     .banniere {
-        width: 100%;
         height: 150px;
 
         &__title {
@@ -469,8 +509,29 @@ body {
         }
     }
 
+    .carroussel {
+        max-width: 355px; // Largeur maximale pour mobile
+        height: 255px; // Hauteur fixe pour mobile
+    }
+
+    .carroussel__arrow--left img {
+        width: 50%;
+    }
+
+    .carroussel__arrow--right img {
+        width: 50%;
+    }
+
+    .carroussel__controls {
+        top: 35%;
+    }
+
+    .carroussel__counter {
+        font-size: 16px; // Réduire la taille du compteur pour mobile
+    }
+
+
     .logement-info {
-        width: 100%;
         padding: 10px;
     }
 
@@ -480,9 +541,10 @@ body {
     }
 
     .logement-host-rating {
-        flex-direction: row;
+        flex-direction: row-reverse;
         justify-content: space-between;
         align-items: center;
+        gap: 100px;
     }
 
     .logement-collapses {
@@ -492,12 +554,12 @@ body {
 
     .collapse-description,
     .collapse-equipments {
-        width: 100%;
+        width: 90%;
     }
 
     .about-container {
-        width: 100%;
         padding: 10px;
+        margin: 10px;
     }
 
     .collapse {
@@ -509,14 +571,18 @@ body {
     }
 
     .error-404 {
-        font-size: 144px;
+        font-size: 144px; // Réduire la taille pour mobile
     }
 
     .error-message {
-        font-size: 24px;
+        font-size: 20px; // Réduire la taille pour mobile
+
+        span {
+            display: block; // Retour à la ligne pour le span
+        }
     }
 
     .error-link {
-        font-size: 16px;
+        font-size: 16px; // Réduire la taille pour mobile
     }
 }

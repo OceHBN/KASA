@@ -16,20 +16,22 @@ function Logement() {
     }
 
     return (
-        <div className="structure">
-            <Header />
-            <Carroussel pictures={logement.pictures} />
-            <Informations
-                title={logement.title}
-                location={logement.location}
-                tags={logement.tags}
-                host={logement.host}
-                rating={logement.rating}
-                description={logement.description}
-                equipments={logement.equipments}
-            />
-            <Footer />
-        </div>
+        <>
+            <div className="structure">
+                <Header />
+                <Carroussel pictures={logement.pictures} />
+                <Informations
+                    title={logement.title}
+                    location={logement.location}
+                    tags={logement.tags}
+                    host={logement.host}
+                    rating={logement.rating}
+                    description={logement.description}
+                    equipments={logement.equipments}
+                />
+            </div>
+            <Footer /> {/* Placé en dehors du div mais toujours dans le return */}
+        </>
     );
 }
 

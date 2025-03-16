@@ -3,17 +3,19 @@ import Header from '../../components/Header.jsx';
 import Footer from '../../components/Footer.jsx';
 import aboutImage from '../../assets/Ban2.png';
 import proposData from '../../data/propos.json';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function About() {
     return (
         <>
-            <Header /> {/* Header présent sur toutes les pages */}
-            <Banniere image={aboutImage} /> {/* Bannière avec l'image importée */}
-            <div className="about-container">
-                {proposData.map((item, index) => (
-                    <Collapse key={index} title={item.title} content={item.content} />
-                ))}
+            <div className="structure">
+                <Header /> {/* Header présent sur toutes les pages */}
+                <Banniere image={aboutImage} /> {/* Bannière avec l'image importée */}
+                <div className="about-container">
+                    {proposData.map((item, index) => (
+                        <Collapse key={index} title={item.title} content={item.content} />
+                    ))}
+                </div>
             </div>
             <Footer /> {/* Footer présent sur toutes les pages */}
         </>
