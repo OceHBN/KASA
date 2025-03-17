@@ -23,13 +23,13 @@ body {
     flex-direction: column;
     flex-grow: 1;
     justify-content: space-between;
+    gap: 50px;
 }
 
 //Structure
 .structure {
     display: flex;
     flex-direction: column;
-    gap: 50px;
     margin: 0;
 
 }
@@ -42,6 +42,7 @@ body {
     margin: auto;
     width: 1240px;
     padding-top: 40px;
+    padding-bottom: 40px;
 
 
     &__logo img {
@@ -82,7 +83,6 @@ body {
     .footer__logo-img {
         width: auto;
         height: 50px;
-        /* Ajuster la taille du logo */
     }
 
     .footer__text {
@@ -95,15 +95,15 @@ body {
 .cards {
     width: 1240px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); // 3 colonnes de largeur égale
+    grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     justify-content: center;
     justify-items: center;
     background-color: #F6F6F6;
     border-radius: 10px;
     margin: auto;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 40px 10px 40px 10px;
+    margin-top: 40px;
 }
 
 .card {
@@ -114,13 +114,25 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
+        z-index: 1;
+    }
+
     &__image {
         width: 100%;
         height: 100%;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+        position: relative;
+        z-index: 0;
     }
 
     &__title {
@@ -133,13 +145,14 @@ body {
         text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
         margin: 0;
         font-weight: normal;
+        z-index: 2;
     }
 }
 
 //BANNIERE
 .banniere {
     width: 100%;
-    max-width: 1240px; // Limite la largeur maximale à modifier pour le MQ
+    max-width: 1240px;
     height: 223px;
     background-size: cover;
     background-position: center;
@@ -161,8 +174,8 @@ body {
 
 .banniere__title {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 40%;
+    left: 45%;
     transform: translate(-50%, -50%);
     font-size: 36px;
     font-weight: bold;
@@ -230,20 +243,20 @@ body {
 
 //LOGEMENTS
 .logement-info {
-    width: 1240px; // Largeur fixe
-    margin: 0 auto; // Centre horizontalement
-    padding: 20px 0; // Espacement intérieur (optionnel)
+    width: 1240px;
+    margin: 0 auto;
 }
 
 .logement-header {
     display: flex;
-    justify-content: space-between; // Espace entre les deux côtés
-    align-items: flex-start; // Alignement en haut
-    margin-bottom: 20px; // Espacement en bas (optionnel)
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .logement-details {
-    flex: 1; // Prend l'espace disponible à gauche
+    flex: 1;
 
     .logement-title {
         font-size: 24px;
@@ -265,9 +278,13 @@ body {
             background: #FF6060;
             color: white;
             padding: 5px 10px;
-            border-radius: 5px;
+            border-radius: 10px;
             font-size: 14px;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
         }
     }
 }
@@ -275,8 +292,8 @@ body {
 .logement-host-rating {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; // Alignement à droite
-    gap: 10px; // Espace entre les éléments
+    align-items: flex-end;
+    gap: 10px;
 }
 
 .logement-host {
@@ -344,9 +361,9 @@ body {
     background-color: #f6f6f6;
     padding: 20px;
     border-radius: 0 0 10px 10px;
-    margin-top: -10px;
-    max-height: 200px; // Limiter la hauteur maximale
-    overflow-y: auto; // Ajouter un défilement si le contenu dépasse
+    margin-top: -5px;
+    max-height: 200px;
+    overflow-y: auto;
 }
 
 //ERROR 
@@ -354,7 +371,6 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin: 100px auto;
     gap: 100px;
 }
 
@@ -472,10 +488,6 @@ body {
 // Media Queries pour mobile (430 x 932)
 @media (max-width: 768px) {
 
-    .structure {
-        gap: 25px;
-    }
-
     .header {
         padding: 10px 20px;
         flex-direction: row;
@@ -492,8 +504,9 @@ body {
 
     .cards {
         grid-template-columns: 1fr;
-        gap: 20px;
         padding: 10px;
+        background-color: white;
+        width: 90%
     }
 
     .card {
@@ -506,12 +519,15 @@ body {
 
         &__title {
             font-size: 24px;
+            top: 40%;
+            left: 40%;
+            width: 70%;
         }
     }
 
     .carroussel {
-        max-width: 355px; // Largeur maximale pour mobile
-        height: 255px; // Hauteur fixe pour mobile
+        width: 90%;
+        height: auto;
     }
 
     .carroussel__arrow--left img {
@@ -528,11 +544,6 @@ body {
 
     .carroussel__counter {
         font-size: 16px; // Réduire la taille du compteur pour mobile
-    }
-
-
-    .logement-info {
-        padding: 10px;
     }
 
     .logement-header {

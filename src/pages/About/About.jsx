@@ -10,7 +10,7 @@ function About() {
         <>
             <div className="structure">
                 <Header /> {/* Header présent sur toutes les pages */}
-                <Banniere image={aboutImage} /> {/* Bannière avec l'image importée */}
+                <Banniere image={aboutImage} showTitle={false} /> {/* Bannière sans titre */}
                 <div className="about-container">
                     {proposData.map((item, index) => (
                         <Collapse key={index} title={item.title} content={item.content} />
