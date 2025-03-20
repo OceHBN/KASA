@@ -51,7 +51,7 @@ body {
 
     &__nav ul {
         display: flex;
-        gap: 20px;
+        gap: 26px;
         list-style: none;
     }
 
@@ -86,7 +86,7 @@ body {
     }
 
     .footer__text {
-        font-size: 14px;
+        font-size: 12px;
         text-align: center;
     }
 }
@@ -280,7 +280,7 @@ body {
             padding: 5px 10px;
             border-radius: 10px;
             font-size: 14px;
-            font-weight: bold;
+            font-weight: normal;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -494,11 +494,15 @@ body {
         align-items: center;
 
         &__logo img {
-            width: 80px;
+            width: 110px;
         }
+    }
 
-        &__nav ul {
-            gap: 10px;
+    .footer {
+        .footer__text {
+            font-size: 12px;
+            text-align: center;
+            width: 25%;
         }
     }
 
@@ -527,7 +531,7 @@ body {
 
     .carroussel {
         width: 90%;
-        max-height: 415px;
+        max-height: 215px;
     }
 
     .carroussel__arrow--left img {
@@ -560,7 +564,7 @@ body {
 
     .logement-collapses {
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
     }
 
     .collapse-description,
@@ -596,4 +600,6 @@ body {
     .error-link {
         font-size: 16px; // Réduire la taille pour mobile
     }
+
+
 }
