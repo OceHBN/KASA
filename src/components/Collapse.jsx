@@ -6,21 +6,18 @@ function Collapse({ title, content }) {
 
     return (
         <div className="collapse">
-            <div className="collapse-header" onClick={() => setIsOpen(!isOpen)}>
-                <span className="collapse-title">{title}</span>
-                <i className={`fa-solid ${isOpen ? "fa-chevron-up" : "fa-chevron-down"}`}></i>
-            </div>
+            <button
+                className="collapse-header"
+                onClick={() => setIsOpen(!isOpen)}
+                aria-expanded={isOpen}
+            >
+                <span>{title}</span>
+                <i className={isOpen ? "fa-solid fa-chevron-up" : "fa-solid fa-chevron-down"} />
+            </button>
+
             {isOpen && (
                 <div className="collapse-content">
-                    {Array.isArray(content) ? (
-                        <ul>
-                            {content.map((item, index) => (
-                                <li key={index}>{item}</li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <p>{content}</p>
-                    )}
+                    {typeof content === 'string' ? <p>{content}</p> : content}
                 </div>
             )}
         </div>

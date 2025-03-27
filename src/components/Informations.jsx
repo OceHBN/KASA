@@ -30,12 +30,14 @@ const Informations = ({ title, location, tags, host, rating, description, equipm
                 </div>
             </div>
 
-            <div className="logement-collapses">
+            <div className="collapse-logement"> {/* Nouvelle div wrapper */}
                 <Collapse
+                    key="description"
                     title="Description"
                     content={<p>{description}</p>}
                 />
                 <Collapse
+                    key="equipments"
                     title="Équipements"
                     content={
                         <ul>
