@@ -5,7 +5,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -26,15 +26,12 @@ body {
     gap: 50px;
 }
 
-//Structure
 .structure {
     display: flex;
     flex-direction: column;
     margin: 0;
-
 }
 
-//HEADER
 .header {
     display: flex;
     justify-content: space-between;
@@ -43,29 +40,27 @@ body {
     width: 1240px;
     padding-top: 40px;
     padding-bottom: 40px;
-
-
-    &__logo img {
-        width: 100px;
-    }
-
-    &__nav ul {
-        display: flex;
-        gap: 26px;
-        list-style: none;
-    }
-
-    &__nav a {
-        text-decoration: none;
-        color: black;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
 }
 
-//FOOTER 
+.header__logo img {
+    width: 100px;
+}
+
+.header__nav ul {
+    display: flex;
+    gap: 26px;
+    list-style: none;
+}
+
+.header__nav a {
+    text-decoration: none;
+    color: black;
+}
+
+.header__nav a:hover {
+    text-decoration: underline;
+}
+
 .footer {
     background-color: black;
     color: white;
@@ -75,23 +70,22 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-
-    .footer__logo {
-        margin-bottom: 5px;
-    }
-
-    .footer__logo-img {
-        width: auto;
-        height: 50px;
-    }
-
-    .footer__text {
-        font-size: 12px;
-        text-align: center;
-    }
 }
 
-//CARDS
+.footer .footer__logo {
+    margin-bottom: 5px;
+}
+
+.footer .footer__logo-img {
+    width: auto;
+    height: 50px;
+}
+
+.footer .footer__text {
+    font-size: 12px;
+    text-align: center;
+}
+
 .cards {
     width: 1240px;
     display: grid;
@@ -113,43 +107,42 @@ body {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
-        z-index: 1;
-    }
-
-    &__image {
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        position: relative;
-        z-index: 0;
-    }
-
-    &__title {
-        position: absolute;
-        bottom: 10px;
-        left: 10px;
-        font-size: 18px;
-        font-weight: bold;
-        color: white;
-        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-        margin: 0;
-        font-weight: normal;
-        z-index: 2;
-    }
 }
 
-//BANNIERE
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
+    z-index: 1;
+}
+
+.card__image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 0;
+}
+
+.card__title {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    margin: 0;
+    font-weight: normal;
+    z-index: 2;
+}
+
 .banniere {
     width: 100%;
     max-width: 1240px;
@@ -184,7 +177,6 @@ body {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
-//Carroussel 
 .carroussel {
     width: 100%;
     max-width: 1240px;
@@ -203,6 +195,7 @@ body {
 .carroussel__image {
     width: 100%;
     height: 100%;
+    -o-object-fit: cover;
     object-fit: cover;
     display: block;
 }
@@ -241,7 +234,6 @@ body {
     display: none;
 }
 
-//LOGEMENTS
 .logement-info {
     width: 1240px;
     margin: 0 auto;
@@ -257,36 +249,36 @@ body {
 
 .logement-details {
     flex: 1;
+}
 
-    .logement-title {
-        font-size: 24px;
-        font-weight: normal;
-        color: #FF6060;
-    }
+.logement-details .logement-title {
+    font-size: 24px;
+    font-weight: normal;
+    color: #FF6060;
+}
 
-    .logement-location {
-        font-size: 18px;
-        color: black;
-    }
+.logement-details .logement-location {
+    font-size: 18px;
+    color: black;
+}
 
-    .logement-tags {
-        display: flex;
-        gap: 10px;
-        margin-top: 10px;
+.logement-details .logement-tags {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
 
-        .tag {
-            background: #FF6060;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 10px;
-            font-size: 14px;
-            font-weight: normal;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: row;
-        }
-    }
+.logement-details .logement-tags .tag {
+    background: #FF6060;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
 }
 
 .logement-host-rating {
@@ -300,35 +292,35 @@ body {
     display: flex;
     align-items: center;
     text-align: right;
+}
 
-    .host-name {
-        margin-right: 10px;
-        color: #FF6060;
-        width: 80px;
-    }
+.logement-host .host-name {
+    margin-right: 10px;
+    color: #FF6060;
+    width: 80px;
+}
 
-    .host-picture {
-        width: 64px;
-        height: 64px;
-        border-radius: 50%;
-    }
+.logement-host .host-picture {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
 }
 
 .logement-rating {
     display: flex;
     gap: 5px;
+}
 
-    .fa-star {
-        font-size: 20px;
-    }
+.logement-rating .fa-star {
+    font-size: 20px;
+}
 
-    .filled-star {
-        color: #FF6060;
-    }
+.logement-rating .filled-star {
+    color: #FF6060;
+}
 
-    .empty-star {
-        color: #E3E3E3;
-    }
+.logement-rating .empty-star {
+    color: #E3E3E3;
 }
 
 .logement-collapses {
@@ -366,7 +358,6 @@ body {
     overflow-y: auto;
 }
 
-//ERROR 
 .error-container {
     display: flex;
     flex-direction: column;
@@ -393,13 +384,12 @@ body {
     color: black;
     text-decoration: underline;
     cursor: pointer;
-
-    &:hover {
-        color: #ff6060;
-    }
 }
 
-//ABOUT
+.error-link:hover {
+    color: #ff6060;
+}
+
 .about-container {
     width: 1240px;
     margin: 50px auto;
@@ -441,7 +431,6 @@ body {
     color: black;
 }
 
-// Media Queries pour tablette (768 x 1024)
 @media (max-width: 1024px) {
     .header {
         width: 90%;
@@ -485,32 +474,28 @@ body {
     }
 }
 
-// Media Queries pour mobile (430 x 932)
 @media (max-width: 768px) {
-
     .header {
         padding: 10px 20px;
         flex-direction: row;
         align-items: center;
-
-        &__logo img {
-            width: 110px;
-        }
     }
 
-    .footer {
-        .footer__text {
-            font-size: 12px;
-            text-align: center;
-            width: 25%;
-        }
+    .header__logo img {
+        width: 110px;
+    }
+
+    .footer .footer__text {
+        font-size: 12px;
+        text-align: center;
+        width: 25%;
     }
 
     .cards {
         grid-template-columns: 1fr;
         padding: 10px;
         background-color: white;
-        width: 90%
+        width: 90%;
     }
 
     .card {
@@ -520,13 +505,13 @@ body {
 
     .banniere {
         height: 150px;
+    }
 
-        &__title {
-            font-size: 24px;
-            top: 40%;
-            left: 40%;
-            width: 60%;
-        }
+    .banniere__title {
+        font-size: 24px;
+        top: 40%;
+        left: 40%;
+        width: 60%;
     }
 
     .carroussel {
@@ -547,7 +532,7 @@ body {
     }
 
     .carroussel__counter {
-        font-size: 16px; // Réduire la taille du compteur pour mobile
+        font-size: 16px;
     }
 
     .logement-header {
@@ -586,20 +571,20 @@ body {
     }
 
     .error-404 {
-        font-size: 144px; // Réduire la taille pour mobile
+        font-size: 144px;
     }
 
     .error-message {
-        font-size: 20px; // Réduire la taille pour mobile
+        font-size: 20px;
+    }
 
-        span {
-            display: block; // Retour à la ligne pour le span
-        }
+    .error-message span {
+        display: block;
     }
 
     .error-link {
-        font-size: 16px; // Réduire la taille pour mobile
+        font-size: 16px;
     }
-
-
 }
+
+/*# sourceMappingURL=main.css.map */
